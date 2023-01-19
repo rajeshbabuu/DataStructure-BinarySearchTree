@@ -19,9 +19,15 @@
             objBinary.Add(16);
             objBinary.Add(63);
             objBinary.Add(67);
+
             Console.WriteLine("\nSorted Binary Tree ==>");
             objBinary.Display();
+
             objBinary.Size();
+
+            BinarySearchTree<int> node = objBinary.FindElement(63, objBinary);
+            Console.WriteLine($"\nElement is : {node.NodeData}");
+
             Console.ReadLine();
         }
     }
