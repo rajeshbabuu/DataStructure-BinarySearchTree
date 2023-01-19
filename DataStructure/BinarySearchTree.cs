@@ -20,7 +20,6 @@ namespace DataStructure
 
         int leftCount = 0;
         int rightCount = 0;
-        bool result = false;
 
         public void Add(T item)
         {
@@ -29,11 +28,13 @@ namespace DataStructure
             {
                 if (this.LeftTree == null)
                 {
-                    this.LeftTree = new BinarySearchTree<T>(item); ;
+                    this.LeftTree = new BinarySearchTree<T>(item);
+                    leftCount++;
                 }
                 else
                 {
                     this.LeftTree.Add(item);
+                    leftCount++;
                     return;
                 }
             }
@@ -42,10 +43,12 @@ namespace DataStructure
                 if (this.RightTree == null)
                 {
                     this.RightTree = new BinarySearchTree<T>(item);
+                    rightCount++;
                 }
                 else
                 {
                     this.RightTree.Add(item);
+                    rightCount++;
                     return;
                 }
             }
@@ -56,15 +59,20 @@ namespace DataStructure
         {
             if (this.LeftTree != null)
             {
-                this.leftCount++;
                 this.LeftTree.Display();
             }
-            Console.WriteLine(this.NodeData.ToString());
+            Console.Write(this.NodeData.ToString() + " ");
             if (this.RightTree != null)
             {
-                this.rightCount++;
                 this.RightTree.Display();
             }
         }
+
+        public void Size()
+        {
+            Console.WriteLine($"\n\nSize of Binary Tree : {(1 + leftCount + rightCount)}");
+        }
+        }
     }
-}
+
+
